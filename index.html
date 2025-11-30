@@ -1,0 +1,95 @@
+<!-- File: index.html -->
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sistem Rekomendasi Menu Sehat - Simulasi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Sistem Rekomendasi Menu Sehat</h1>
+      <p class="lead">Simulasi sederhana KNN (client-side) untuk merekomendasikan menu sehat.</p>
+    </header>
+
+    <section class="card">
+      <h2>Input Pengguna</h2>
+      <form id="form">
+        <label>Nama
+          <input id="name" placeholder="Masukkan nama (opsional)" />
+        </label>
+
+        <label>Usia
+          <input id="age" type="number" min="10" max="100" value="25" required />
+        </label>
+
+        <label>Jenis Kelamin
+          <select id="gender">
+            <option value="male">Laki-laki</option>
+            <option value="female">Perempuan</option>
+            <option value="other">Lainnya</option>
+          </select>
+        </label>
+
+        <label>Tingkat Aktivitas
+          <select id="activity">
+            <option value="1">Ringan</option>
+            <option value="2" selected>Sedang</option>
+            <option value="3">Berat</option>
+          </select>
+        </label>
+
+        <label>Preferensi Makanan
+          <select id="preference">
+            <option value="diet">Diet (rendah kalori)</option>
+            <option value="manis">Manis</option>
+            <option value="pedas">Pedas</option>
+            <option value="protein">Tinggi protein</option>
+            <option value="vegetarian">Vegetarian</option>
+          </select>
+        </label>
+
+        <label>Tujuan Kesehatan
+          <select id="goal">
+            <option value="maintain">Menjaga berat badan</option>
+            <option value="lose">Menurunkan berat badan</option>
+            <option value="gain">Meningkatkan massa otot</option>
+          </select>
+        </label>
+
+        <div class="actions">
+          <button type="submit">Prediksi Rekomendasi</button>
+          <button type="button" id="clear">Bersihkan Riwayat</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Hasil Prediksi</h2>
+      <div id="result" class="result">Belum ada prediksi.</div>
+      <div id="nutrition" class="nutrition"></div>
+    </section>
+
+    <section class="card">
+      <h2>Riwayat Rekomendasi</h2>
+      <ul id="history" class="history"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Cara Kerja Model (Singkat)</h2>
+      <p>
+        Model yang digunakan: <strong>K-Nearest Neighbors (K = 3)</strong> — model sederhana yang menghitung "jarak" antara input pengguna dan contoh data pada dataset kecil. Contoh data disimpan di file script (client-side).
+      </p>
+      <details>
+        <summary>Contoh dataset (ringkasan)</summary>
+        <pre id="dataset-preview"></pre>
+      </details>
+    </section>
+
+    <footer class="footer">
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
